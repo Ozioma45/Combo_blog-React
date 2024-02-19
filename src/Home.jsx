@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import BlogList from "./BlogList";
 
 export default function Home() {
@@ -13,6 +14,10 @@ export default function Home() {
     },
   ]);
 
+  useEffect(() => {
+    console.log("use effect run");
+  });
+
   const handleDelete = (id) => {
     const newBlogs = blogs.filter((blog) => blog.id !== id);
     setBlogs(newBlogs);
@@ -20,10 +25,6 @@ export default function Home() {
   return (
     <div className="Home">
       <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
-      <BlogList
-        blogs={blogs.filter((blogs) => blogs.author === "mario")}
-        title="mario'S Blogs"
-      />
     </div>
   );
 }
