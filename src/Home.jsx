@@ -15,6 +15,10 @@ export default function Home() {
   return (
     <div className="Home">
       <BlogList blogs={blogs} title="All Blogs" />
+      <BlogList
+        blogs={blogs.filter((blogs) => blogs.author === "mario")}
+        title="mario'S Blogs"
+      />
     </div>
   );
 }
